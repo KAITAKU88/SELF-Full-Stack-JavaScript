@@ -47,4 +47,24 @@ function getHumanChoice() {
     return humanChoise;
 }
 
+//Tạo hàm để chơi 
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
+        console.log("2 bạn HÒA nhau!");
+    } else if ((humanChoice === 'paper' && computerChoice === "rock") ||
+                (humanChoice === 'rock' && computerChoice === 'scissors') ||
+                (humanChoice === 'scissors' && computerChoice === 'paper')) {
+        humanScore++;
+        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
+        console.log(`humanScore: ${humanScore}`);
+        console.log("Human win!");
+    } else {
+        computerScore++;
+        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
+        console.log(`computerScore: ${computerScore}`);
+        console.log("Computer win!");
+    }
+}
 
+playRound(getHumanChoice(), getComputerChoice());

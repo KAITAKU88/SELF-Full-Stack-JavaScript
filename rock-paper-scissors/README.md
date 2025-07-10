@@ -28,10 +28,17 @@
 - Sử dụng prompt method để nhận về input của người chơi.
 - Tại thời điểm này ta không xử lý trường hợp người dùng nhập sai (sẽ học sau). Tức là ta sẽ giả sử người dùng luôn nhập đúng. (Tất nhiên nếu bạn có thể xử lý tình huống người dùng nhập sai thì quá tốt )
 - Kiểm tra hàm xem hoạt động đúng không bằng cách sử dụng console.log
+
 ##BƯỚC 4: KHAI BÁO BIẾN SCORE CỦA NGƯỜI CHƠI 
 - Game sẽ theo dõi điểm (score) của người chơi. Vì vậy bạn cần viết các biến để theo dõi điểm của người chơi.
 - Tạo 2 biến tên là humanScore và computerScore phạm vi toàn cục.
 - Giá trị khởi tạo của chúng đều là 0.
-- 
-##BƯỚC 5:
-##BƯỚC 6:
+-
+##BƯỚC 5:VIẾT LOGIC (THUẬT TOÁN) ĐỂ CHƠI 1 VÁN (SINGLE ROUND)
+- Game này sẽ được chơi theo từng vòng (round).
+- hãy tạo 1 hàm tên là playRound
+- Xác định 2 tham số là humanChoice và computerChoise làm tham số của hàm.
+- Viết code để in ra console.log thông báo xem ai thắng trong mỗi lần chơi.
+- Tăng điểm của người chơi lên. 
+
+##BƯỚC 6: VIẾT THUẬT TOÁN (LOGIC) ĐỂ PLAY TOÀN BỘ GAME 
