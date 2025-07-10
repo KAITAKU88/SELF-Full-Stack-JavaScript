@@ -1,3 +1,7 @@
+//Khai báo và khởi tạo biến score của người chơi
+let humanScore = 0;
+let computerScore = 0;
+
 //Hàm này trả về lựa chọn của máy tính (ngẫu nhiên)
 
 function getComputerChoice() {

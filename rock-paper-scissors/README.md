@@ -26,8 +26,12 @@
 - Tạo 1 hàm tên là getHumanChoice.
 - Viết code để hàm này trả về 1 lựa chọn hợp lệ tùy theo cái mà người dùng nhập vào.
 - Sử dụng prompt method để nhận về input của người chơi.
-- Tại thời điểm này ta không xử lý trường hợp người dùng nhập sai (sẽ học sau). Tức là ta sẽ giả sử người dùng luôn nhập đúng
+- Tại thời điểm này ta không xử lý trường hợp người dùng nhập sai (sẽ học sau). Tức là ta sẽ giả sử người dùng luôn nhập đúng. (Tất nhiên nếu bạn có thể xử lý tình huống người dùng nhập sai thì quá tốt )
 - Kiểm tra hàm xem hoạt động đúng không bằng cách sử dụng console.log
-##BƯỚC 4:
+##BƯỚC 4: KHAI BÁO BIẾN SCORE CỦA NGƯỜI CHƠI 
+- Game sẽ theo dõi điểm (score) của người chơi. Vì vậy bạn cần viết các biến để theo dõi điểm của người chơi.
+- Tạo 2 biến tên là humanScore và computerScore phạm vi toàn cục.
+- Giá trị khởi tạo của chúng đều là 0.
+- 
 ##BƯỚC 5:
 ##BƯỚC 6:
