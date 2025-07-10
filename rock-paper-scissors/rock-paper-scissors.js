@@ -1,6 +1,3 @@
-//Khai báo và khởi tạo biến score của người chơi
-let humanScore = 0;
-let computerScore = 0;
 
 //Hàm này trả về lựa chọn của máy tính (ngẫu nhiên)
 
@@ -47,24 +44,44 @@ function getHumanChoice() {
     return humanChoise;
 }
 
-//Tạo hàm để chơi 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
-        console.log("2 bạn HÒA nhau!");
-    } else if ((humanChoice === 'paper' && computerChoice === "rock") ||
-                (humanChoice === 'rock' && computerChoice === 'scissors') ||
-                (humanChoice === 'scissors' && computerChoice === 'paper')) {
-        humanScore++;
-        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
-        console.log(`humanScore: ${humanScore}`);
-        console.log("Human win!");
-    } else {
-        computerScore++;
-        // console.log(`humanChoice: ${humanChoice} || computerChoice: ${computerChoice}`);
-        console.log(`computerScore: ${computerScore}`);
-        console.log("Computer win!");
+
+//Tạo hàm để chơi toàn bộ game, chơi 5 vòng mới phân định thắng thua.
+function playGame() {
+    //Khai báo và khởi tạo biến score của người chơi
+    let humanScore = 0;
+    let computerScore = 0;
+    //Nếu dùng vòng lặp  thì sẽ đơn giản hơn
+    //Nhưng ở đây ta sẽ cố gắng không sử dụng vòng lặp, vì ta chưa học 
+    let countRound = 0; //biến đếm
+    let resultRount;
+
+    //Tạo hàm để chơi 1 vòng
+    function playRound() {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        if (humanChoice === computerChoice) {
+            resultRount = "Hòa";
+        } else if ((humanChoice === 'paper' && computerChoice === "rock") ||
+                    (humanChoice === 'rock' && computerChoice === 'scissors') ||
+                    (humanChoice === 'scissors' && computerChoice === 'paper')) {
+            ++humanScore;
+            resultRount = "Human win";
+        } else {
+            ++computerScore;
+            resultRount = "Computer win";
+        }
+
+        ++countRound; //sau mỗi lượt chơi thì tăng biến đếm lên 1 
+        console.log(`Lượt chơi thứ : ${countRound}, humanScore: ${humanScore}, computerScore: ${computerScore}, ${resultRount}`);
+
+        if( countRound < 5) { //Nếu chưa chơi đủ 5 vòng thì chơi tiếp 
+            playRound();
+        }
+
     }
+
+    playRound();
+    return console.log(( humanScore === computerScore) ? "Hòa" : (( humanScore > computerScore) ? "Human win!" : "Computer win!")); 
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+playGame();
