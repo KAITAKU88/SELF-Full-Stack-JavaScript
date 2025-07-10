@@ -1,3 +1,5 @@
+//Hàm này trả về lựa chọn của máy tính (ngẫu nhiên)
+
 function getComputerChoice() {
     let choices ="";
     const randomNumber = Math.round(Math.random() * 100);
@@ -15,4 +17,30 @@ function getComputerChoice() {
     
 }
 
-console.log(getComputerChoice());
+//Hàm này trả về lựa chọn của người chơi, nhập vào bằng promt method
+function getHumanChoice() {
+    let humanChoise = "";
+    let input = prompt(`Nhập vào lựa chọn của bạn 
+        r nếu chọn rock
+        p nếu là paper
+        s nếu là scissors`);
+    input = input.toLowerCase();
+    switch (input) {
+        case "r":
+            humanChoise = "rock";
+            break;
+        case "p":
+            humanChoise = "paper";
+            break;
+        case "s":
+            humanChoise = "scissors";
+            break;
+        default :
+            alert("Nhập sai, vui lòng nhập lại!");
+            getHumanChoice();
+
+    }
+    return humanChoise;
+}
+
+
