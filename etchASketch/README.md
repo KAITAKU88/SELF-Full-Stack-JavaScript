@@ -57,4 +57,4 @@ Sau 10 lần thì ô sẽ hoàn toàn đen.
 Dùng thuộc tính opacity trong CSS.  
 Tăng dần opacity mỗi lần hover (ví dụ: từ 0.1 → 0.2 → ... → 1).
 Tức là mỗi 1 ô mặc dù lần đầu sẽ là 1 màu ngẫu nhiên, nhưng từ lần sau hover qua
-thì vẫn phải là mầu đó, chỉ có là tối hơn 
+thì vẫn phải là mầu đó, chỉ có là tối hơn
