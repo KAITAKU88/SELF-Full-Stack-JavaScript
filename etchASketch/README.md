@@ -35,7 +35,6 @@ Kiểm tra các lỗi phổ biến:
 
 ## 5. Thêm hiệu ứng “hover” để đổi màu
 Khi chuột đi qua một ô, ô đó đổi màu như đang vẽ.  
-Thêm một class CSS mới.  
 Thay đổi style.backgroundColor bằng JavaScript.  
 
 ## 6. Thêm nút để tạo lưới mới
@@ -57,3 +56,5 @@ Mỗi lần hover, ô tối hơn 10%.
 Sau 10 lần thì ô sẽ hoàn toàn đen.  
 Dùng thuộc tính opacity trong CSS.  
 Tăng dần opacity mỗi lần hover (ví dụ: từ 0.1 → 0.2 → ... → 1).
+Tức là mỗi 1 ô mặc dù lần đầu sẽ là 1 màu ngẫu nhiên, nhưng từ lần sau hover qua
+thì vẫn phải là mầu đó, chỉ có là tối hơn 
