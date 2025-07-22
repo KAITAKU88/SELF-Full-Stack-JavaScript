@@ -4,16 +4,28 @@
     box-sizing: border-box;
     
 }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
 
 .container {
     background: rgb(247, 244, 244);
     width: 360px;
-    height: 480px;
-    padding: 10px;
     border: 0.5px solid rgb(208, 202, 202);
     border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    
+}
+
+
+
+.buttonContainer {
+    height: 400px;
+    padding: 10px;
     display: flex;
-    gap: 5px
+    gap: 5px;
 
 
 }
@@ -36,10 +48,33 @@ button {
     border-radius: 4px;;
     flex: 1;
 
+    font-size:1.1em;
+
 }
 
-.btn:hover,
+
 button:hover
 {
     background: rgb(172, 198, 172);
+}
+
+.btn {
+    display: flex;
+    gap: 1px;
+    background: none;
+    border: none;
+}
+
+.stronger {
+    font-weight: 900;
+}
+
+.operator {
+    background: orange;
+}
+
+.footer {
+    width: fit-content;
+    /* margin-right: 0; */
+    margin-left: auto;
 }
