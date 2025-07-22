@@ -77,17 +77,19 @@ button:hover
     text-align: right;
 }
 
-input {
-    /* mặc định input là inline */
-    display: block; 
-    /* căn hộp ở giữa  */
-    margin: 10px auto 0px auto;
+.screen {
+    display: flex;
+    border: 0.5px solid black;
     width: 320px;
     height: 50px;
-    /* căn text bên phải */
-    text-align: right;
-    font-size: 1.5em;
-
+    margin: 10px auto;
+    background: #FFF;
+    border-radius: 3px;
+    font-size: 2em;
+    justify-content: right;
+    padding-right: 5px;
+    align-items: center;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .header {
