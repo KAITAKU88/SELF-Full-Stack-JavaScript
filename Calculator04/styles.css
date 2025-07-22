@@ -65,12 +65,15 @@ button:hover
     border: none;
 }
 
-.stronger {
+.dot,
+.number {
     font-weight: 900;
 }
 
+.equa,
 .operator {
     background: orange;
+    font-weight: 900;
 }
 
 .footer {

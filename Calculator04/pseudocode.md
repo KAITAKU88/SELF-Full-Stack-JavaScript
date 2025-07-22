@@ -7,23 +7,22 @@
 >- Tạo biến `memoryNum` để lưu các giá trị 1 cách độc lập. Mặc định ban đầu là bằng `0`
 
 ## Hàm
->- Khi nhấn hím căn x thì sẽ trả về `screen = sqrt(screen)`
+>- Khi nhấn phím căn x thì sẽ trả về `screen = sqrt(screen)`
 >- Phím X^2 sẽ thực hiện phép gán: `screen = screen * screen` 
 >- Khi người dùng nhấn vào phím Pi thì trả về số Pi 
 >- Khi người dùng nhấn phím `R2` thì sẽ gọi hàm `roundFunc` để làm tròn đến 2 chữ số. Hàm `roundFunc` được viết để làm tròn đến số chữ số bất kỳ. Nhưng ở đây khi người dùng nhấn `R2` sẽ được gọi để làm tròn 2 chữ số.
 >- Ngay dưới R2 là R0, tức là 2 phím này sẽ có kích thước bằng 1/2 các phím khác. Cũng gọi hàm `roundFunc` nhưng làm tròn để số nguyên gần nhất.  
 >- Khi phím +/- được nhấn thì đơn giản là thực hiện phép gán: `screen = (-1) * screen`
-
+>- Khi nhấn phím `m+` thì sẽ cộng thêm giá trị đang hiển thị vào bộ nhớ độc lập. Tức là `memoryNum += screen`
+>- Khi nhấn `m-` sẽ là `memoryNum -= screen`
+>- Khi nhấn `mr` khi sẽ gọi giá trị trong bộ nhớ độc lập. Tức là `screen = memoryNum`
+>- Khi nhấn `mc` sẽ xóa bộ nhớ độc lập. Tức là gán `memoryNum = 0`.
 
 
 
 >- Khi phím `CLEAR` được nhấn 1 lần thì sẽ xóa bớt 1 số trên giá trị của `screen`, ví dụ `abc` thì chỉ còn `ab`. Chính là `screen = (screen - c)/10`
 >- Khi nhấn phím `CE` thì xóa toàn bộ những gì đang hiển thị trên màn hình (thường là `num2`). Tức là lúc này gán `screen = ""`
 >- Khi nhấn `AC` thì xóa toàn bộ giá trị lưu trong bộ nhớ tạm thời , tức là xóa cả `num1` (đã nhập và không hiển thị trên màn hình), và `num2` (chưa nhập, hoặc đã nhập và đang hiển thị trên màn hình).
->- Khi nhấn phím `m+` thì sẽ cộng thêm giá trị đang hiển thị vào bộ nhớ độc lập. Tức là `memoryNum += screen`
->- Khi nhấn `m-` sẽ là `memoryNum -= screen`
->- Khi nhấn `mr` khi sẽ gọi giá trị trong bộ nhớ độc lập. Tức là `screen = memoryNum`
->- Khi nhấn `mc` sẽ xóa bộ nhớ độc lập. Tức là gán `memoryNum = 0`.
 
 ## Lưu ý
 - Các phím `mc, mr, m-, m+, căn bậc 2, bình phương, PI, R2, R0, CLEAR` đều là thao tác với 1 đối số, thường là số đang hiển thị trên màn hình `screen`  
