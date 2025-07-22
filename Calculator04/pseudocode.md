@@ -13,6 +13,10 @@
 >- Khi người dùng nhấn phím `R2` thì sẽ gọi hàm `roundFunc` để làm tròn đến 2 chữ số. Hàm `roundFunc` được viết để làm tròn đến số chữ số bất kỳ. Nhưng ở đây khi người dùng nhấn `R2` sẽ được gọi để làm tròn 2 chữ số.
 >- Ngay dưới R2 là R0, tức là 2 phím này sẽ có kích thước bằng 1/2 các phím khác. Cũng gọi hàm `roundFunc` nhưng làm tròn để số nguyên gần nhất.  
 >- Khi phím +/- được nhấn thì đơn giản là thực hiện phép gán: `screen = (-1) * screen`
+
+
+
+
 >- Khi phím `CLEAR` được nhấn 1 lần thì sẽ xóa bớt 1 số trên giá trị của `screen`, ví dụ `abc` thì chỉ còn `ab`. Chính là `screen = (screen - c)/10`
 >- Khi nhấn phím `CE` thì xóa toàn bộ những gì đang hiển thị trên màn hình (thường là `num2`). Tức là lúc này gán `screen = ""`
 >- Khi nhấn `AC` thì xóa toàn bộ giá trị lưu trong bộ nhớ tạm thời , tức là xóa cả `num1` (đã nhập và không hiển thị trên màn hình), và `num2` (chưa nhập, hoặc đã nhập và đang hiển thị trên màn hình).

@@ -36,6 +36,8 @@ let round_0 = document.querySelector(".round_0");
 let round_2 = document.querySelector(".round_2");
 let clearOne = document.querySelector(".clearOne");
 
+//Khai báo cách hàm tính toán 
+
 //hàm làm tròn 1 số xuống n chữ số, gồm cả thập phân và phần nguyên 
 function mathRound(float, n) {
     // .toPrecision(n) để làm tròn 1 số xuống n ký tự bao gồm cả phần nguyên và phần thập phân
@@ -46,6 +48,17 @@ function mathFixed(float, n) {
     return Number(float).toFixed(n);
 }
 
+
+
+
+
+
+
+//Gắn sự kiện cho các button 
+
+plusMinus.addEventListener("click", () => {
+    display.textContent = (-1) * display.textContent;
+})
 
 //Giá trị PI, nút Pi
 pi.addEventListener("click", () => {
