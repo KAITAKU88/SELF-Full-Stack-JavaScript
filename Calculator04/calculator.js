@@ -123,6 +123,7 @@ clearOne.addEventListener("click", () => {
 
 })
 
+//Đang sửa file này 
 
 nums.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
