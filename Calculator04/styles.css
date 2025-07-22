@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    background: rgb(247, 244, 244);
+    width: 360px;
+    height: 480px;
+    padding: 10px;
+    border: 0.5px solid rgb(208, 202, 202);
+    border-radius: 5px;
+    display: flex;
+    gap: 5px
+
+
+}
+.one,
+.two,
+.three,
+.four {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+
+}
+
+
+.btn,
+button {
+    background: rgb(233, 233, 202);
+    border: 0.5px solid rgb(166, 166, 76);
+    border-radius: 4px;;
+    flex: 1;
+
+}
+
+.btn:hover,
+button:hover
+{
+    background: rgb(172, 198, 172);
+}
