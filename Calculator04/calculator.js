@@ -3,6 +3,9 @@ let numsBtn = document.querySelectorAll(".number");
 let dot = document.querySelector(".dot");
 let equa = document.querySelector(".equa");
 let pi = document.querySelector(".pi");
+let screen = document.querySelector(".screen");
+let square = document.querySelector(".square");
+let sqrt = document.querySelector(".sqrt");
 
 
 
@@ -24,7 +27,10 @@ let operatorToFunction = {
     'x' : (a, b) => {return a*b},
     '+' : (a, b) => {return a + b},
     '-' : (a, b) => {return a - b},
-    "&pi;" : () => {return Math.PI}
+    "pi" : () => {return Math.PI},
+    "sqrt" : (a) => {return Math.sqrt(a)},
+    "square" : (a) => {return Math.pow(a, 2)},
+    "+-" : (a) => {return (-1)*a},
 };
 
 
@@ -40,10 +46,22 @@ let operatorToFunction = {
 
 
 // KHU VỰC OK RỒI 
+
+square.addEventListener("click", () => {
+    //tính toán xong hiển thị lên màn hình 
+    screen.textContent = operatorToFunction["square"](screen.textContent);
+})
+
+sqrt.addEventListener("click", () => {
+    //Tính toán xong thì hiển thị kết quả lên màn hình 
+    screen.textContent = operatorToFunction["sqrt"](screen.textContent);
+})
+
+
 pi.addEventListener("click", () => {
     //không cần gán toán tử, vì không có toán hạng 
-    operatorToFunction["&pi;"]();
-    //Chưa xử lý hiển thị lên màn hình 
+    //hiển thị lên màn hình 
+    screen.textContent = operatorToFunction["pi"]();
 })
 
 
