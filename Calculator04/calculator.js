@@ -1,5 +1,3 @@
-// nhánh này sẽ phân tích và viết lại logic từ đầu
-
 //trả về các phím số 
 let numsBtn = document.querySelectorAll(".number");
 let dot = document.querySelector(".dot");
@@ -130,24 +128,13 @@ function createNumberDisplay (element) {
 }
 
 
-
-
-
-
-
 // Khi nút % được nhấn, 
 //tùy theo là toán tử +,- hay * mà kết quả sẽ khác nhau
 
 percent.addEventListener("click", () => {
-    const x = operatorToFunction[operators + "%"](num1, num2);
-    console.log(`${num1} ${operators} ${num2}% = `, x);
+    screen.textContent = operatorToFunction[operators + "%"](num1, num2);
+    // console.log(`${num1} ${operators} ${num2}% = `, x);
 })
-
-
-// KHU VỰC OK RỒI 
-
-
-
 
 
 memoryElements.forEach((element, index, arr) => {
@@ -239,7 +226,6 @@ dot.addEventListener("click", () => {
     operatorToFunction["dot"](dot);
 
 })
-
 
 
 //Khi AC, CE được nhấn 
