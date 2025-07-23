@@ -5,6 +5,7 @@ let numsBtn = document.querySelectorAll(".number");
 let dot = document.querySelector(".dot");
 let equa = document.querySelector(".equa");
 let pi = document.querySelector(".pi");
+let acce = document.querySelector(".acce");
 let screen = document.querySelector(".screen");
 //Trả về các toán tử cần 2 toán hạng 
 let opes = document.querySelectorAll(".operator");
@@ -14,8 +15,9 @@ let sqrt = document.querySelector(".sqrt");
 let plusMinus = document.querySelector(".plusMinus");
 let round_0 = document.querySelector(".round_0");
 let round_2 = document.querySelector(".round_2");
+let clearOneLast = document.querySelector(".clearOne");
 //Trả về các phần tử mc, mr, m+, m-
-let memoryElements = document.querySelectorAll(".memory");// chưa tạo class .memory 
+let memoryElements = document.querySelectorAll(".memory");
 
 
 
@@ -27,6 +29,8 @@ let num1 = 0;
 let num2 = 0; //đây là 2 toán hạng trong phép tính toán 
 
 
+//hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
+
 
 //object mapping để chuyển từ operator string sang function 
 let operatorToFunction = {
@@ -34,6 +38,7 @@ let operatorToFunction = {
     'x' : (a, b) => {return a*b},
     '+' : (a, b) => {return a + b},
     '-' : (a, b) => {return a - b},
+    '%' : (a, b) => {return },           //xử lý hàm %????????????????????
     "pi" : () => {return Math.PI},
     "sqrt" : (a) => {return Math.sqrt(a)},
     "square" : (a) => {return Math.pow(a, 2)},
@@ -44,6 +49,9 @@ let operatorToFunction = {
     "mr" : () => {screen.textContent = memoVar},
     "m-" : () => {memoVar -= screen.textContent},
     "m+" : () => {memoVar += screen.textContent},
+    //Nếu số chỉ còn 1 ký tự, khi xóa nốt thì sẽ hiển thị 0 thay vì màn hình rỗng 
+    "CL" : (a) => {return (a.length > 1) ? a.substring(0, a.length - 1): 0;
+    }
 };
 
 
@@ -61,7 +69,9 @@ memoryElements.forEach((element, index, arr) => {
     })
 })
 
-
+clearOneLast.addEventListener("click", () => {
+    screen.textContent = operatorToFunction["CL"](screen.textContent);
+})
 
 round_0.addEventListener("click", () => {
     screen.textContent = operatorToFunction["r0"](screen.textContent);
@@ -98,17 +108,26 @@ opes.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
         //Khi 1 toán tử được nhấn thì trả về toán hạng đó để tính toán 
         operators = element.textContent;
+        //cần xử lý gì với num2, num1 ở đây 
     })
 });
 
 //khi dấu = được nhấn thì 
 equa.addEventListener("click", () => {
     //Thực hiện phép tính toán 
-    operatorToFunction[operator](num1, num2);  //vấn đề quan trọng là xác định num1, num2???
+    operatorToFunction[operators](num1, num2);  //vấn đề quan trọng là xác định num1, num2???
     //chưa xử lý hiển thị lên màn hình 
 });
 
+//khi các button số được nhấn
+
+
+//Khi nút dot được nhấn 
 
 
 
+// Khi nút % được nhấn 
 
+
+
+//Khi AC, CE được nhấn 
