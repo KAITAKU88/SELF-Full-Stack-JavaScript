@@ -51,12 +51,57 @@ let operatorToFunction = {
     "m+" : () => {memoVar += screen.textContent},
     //Nếu số chỉ còn 1 ký tự, khi xóa nốt thì sẽ hiển thị 0 thay vì màn hình rỗng 
     "CL" : (a) => {return (a.length > 1) ? a.substring(0, a.length - 1): 0;
+    },
+    "ACCE" : () => {
+        if (acce.textContent == "CE") {
+            num2 = 0;
+            screen.textContent = 0;
+            acce.textContent = "AC";
+        } else {
+            num1 = 0;
+            num2 = 0;
+            screen.textContent = 0;
+        }
+    },   
+    "numsbutton": (element) => {
+
+        //xử lý hàm để loại số 0 ở đầu, nhưng không loại bỏ số 0 ở sau 
+        if(screen.textContent == "0") {
+            //do nothing
+            screen.textContent = element.textContent
+        } else {
+            screen.textContent += element.textContent;
+
+        }
+
+        if(screen.textContent != "0") {
+            acce.textContent = "CE";
+        }
+        
+        return screen.textContent;
+    },
+    "dot" : () => {
+        acce.textContent = "CE";
+        //Kiểm tra, nếu số trên màn hình chưa có dấu . thì mới thực hiện 
+        if (String(screen.textContent).includes(".") == true) {
+            console.log("included `.`");
+            //do nothing
+        } else {
+            if (screen.textContent == "0") {
+                screen.textContent = "0.";
+            }
+            else {
+                screen.textContent += ".";
+            }
+        }
+        return screen.textContent;
     }
+
 };
 
 
 
-
+// Khi nút % được nhấn 
 
 
 // KHU VỰC OK RỒI 
@@ -97,9 +142,11 @@ sqrt.addEventListener("click", () => {
 
 
 pi.addEventListener("click", () => {
+    acce.textContent = "CE";
     //không cần gán toán tử, vì không có toán hạng 
     //hiển thị lên màn hình 
     screen.textContent = operatorToFunction["pi"]();
+    
 })
 
 
@@ -119,15 +166,28 @@ equa.addEventListener("click", () => {
     //chưa xử lý hiển thị lên màn hình 
 });
 
-//khi các button số được nhấn
-
+//khi các button number được nhấn
+numsBtn.forEach((element) => {
+    element.addEventListener("click", () => {
+         operatorToFunction["numsbutton"](element);
+        // if(screen.textContent != "0") {
+        //     acce.textContent = "CE";
+        // }
+    })
+})
 
 //Khi nút dot được nhấn 
 
+dot.addEventListener("click", () => {
+    acce.textContent = "CE";
+    operatorToFunction["dot"]();
 
-
-// Khi nút % được nhấn 
+})
 
 
 
 //Khi AC, CE được nhấn 
+acce.addEventListener("click", () => {
+    operatorToFunction["ACCE"]();
+})
+
