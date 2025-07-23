@@ -38,6 +38,7 @@ let operatorToFunction = {
     'x' : (a, b) => {return a*b},
     '+' : (a, b) => {return a + b},
     '-' : (a, b) => {return a - b},
+    //3 hàm sau để dùng cho toán tử % 
     'x%' : (a, b) => {return a*b/100}, 
     '+%' : (a, b) => {return +a + a*b/100},
     '-%' : (a, b) => {return a - a*b/100},
