@@ -2,6 +2,10 @@
 let numsBtn = document.querySelectorAll(".number");
 let dot = document.querySelector(".dot");
 let equa = document.querySelector(".equa");
+let pi = document.querySelector(".pi");
+
+
+
 let operator = "";
 let num1 = 0;
 let num2 = 0; //đây là 2 toán hạng trong phép tính toán 
@@ -10,7 +14,7 @@ let num2 = 0; //đây là 2 toán hạng trong phép tính toán
 let opes = document.querySelectorAll(".operator");
 
 let forOneOperand = {
-    "&pi;" : Math.PI,
+    
 
 }
 
@@ -19,8 +23,8 @@ let operatorToFunction = {
     '/' : (a, b) => {return a/b},
     'x' : (a, b) => {return a*b},
     '+' : (a, b) => {return a + b},
-    '-' : (a, b) => {return a - b}
-    
+    '-' : (a, b) => {return a - b},
+    "&pi;" : () => {return Math.PI}
 };
 
 
@@ -36,6 +40,11 @@ let operatorToFunction = {
 
 
 // KHU VỰC OK RỒI 
+pi.addEventListener("click", () => {
+    //không cần gán toán tử, vì không có toán hạng 
+    operatorToFunction["&pi;"]();
+    //Chưa xử lý hiển thị lên màn hình 
+})
 
 
 //Với mỗi nút toán hạng được click thì : 
@@ -50,6 +59,7 @@ opes.forEach((element, index, arr) => {
 equa.addEventListener("click", () => {
     //Thực hiện phép tính toán 
     operatorToFunction[operator](num1, num2);  //vấn đề quan trọng là xác định num1, num2???
+    //chưa xử lý hiển thị lên màn hình 
 });
 
 
