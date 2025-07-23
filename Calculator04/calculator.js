@@ -25,8 +25,9 @@ let memoVar = 0;//biến độc lập cho giá trị trong bộ nhớ dùng cho 
 let memoOperator="";//Đại diện cho các toán tử mc, mr, m-, m+
 
 let operators = ""; //đại diện cho các toán tử 2 toán hạng như +, -, *, /, %
-let num1 = 0;
-let num2 = 0; //đây là 2 toán hạng trong phép tính toán 
+let num1 = "0";//ta khai là chuỗi, không phải số vì để nối chuỗi sau này 
+let num2 = "0"; //đây là 2 toán hạng trong phép tính toán 
+let isNum2 = false;// Mặc định giá trị trên screen được gán cho num1 
 
 
 //hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
@@ -39,6 +40,9 @@ let operatorToFunction = {
     '+' : (a, b) => {return a + b},
     '-' : (a, b) => {return a - b},
     '%' : (a, b) => {return },           //xử lý hàm %????????????????????
+
+
+
     "pi" : () => {return Math.PI},
     "sqrt" : (a) => {return Math.sqrt(a)},
     "square" : (a) => {return Math.pow(a, 2)},
@@ -64,7 +68,18 @@ let operatorToFunction = {
         }
     },   
     "numsbutton": (element) => {
+        return createNumberDisplay(element);
+    },
+    "dot" : (element) => {
+        return createNumberDisplay(element);
+    }
 
+};
+
+//Kết hợp nội dùng hàm dot, hàm numsbutton, acce.textContent,
+
+function createNumberDisplay (element) {
+    if(element.textContent !== ".") {
         //xử lý hàm để loại số 0 ở đầu, nhưng không loại bỏ số 0 ở sau 
         if(screen.textContent == "0") {
             //do nothing
@@ -79,8 +94,9 @@ let operatorToFunction = {
         }
         
         return screen.textContent;
-    },
-    "dot" : () => {
+
+    }
+    else {
         acce.textContent = "CE";
         //Kiểm tra, nếu số trên màn hình chưa có dấu . thì mới thực hiện 
         if (String(screen.textContent).includes(".") == true) {
@@ -96,15 +112,55 @@ let operatorToFunction = {
         }
         return screen.textContent;
     }
+}
 
-};
+
+
+
 
 
 
 // Khi nút % được nhấn 
 
 
+
+
+/*
+Khi 1 trong 5 toán tử %, /, x, -< + 
+- Sau khi nhấn 1 trong 5 toán tử ta đã có num1 và toán tử operators.
+- Ta cần num2 nữa để thực hiện phép toán 
+*/
+opes.forEach((element) => {
+    element.addEventListener("click", () => {
+        //Nhận diện toán tử 
+        operators = element.textContent;
+        //Gán giá trị trên màn hình cho num1 
+        num1 = screen.textContent;
+        //kích hoạt num2, để bắt đầu gán cho num2.
+        isNum2 = true;
+    })
+});
+
+equa.addEventListener("click", () => {
+    //
+    //Viết 1 hàm để dùng trong đây, hàm này dùng cho cả dot và numsBtn luôn. Viết hàm độc lập bên ngoài
+    //hàm này cho phép nhận các element.textContent để nối thành 1 số có nghĩa.
+    
+
+
+    //sau khi nhấn = ta có đủ 3 yếu tố để thực hiện phép toán 
+})
+
+
+
+
+
+
 // KHU VỰC OK RỒI 
+
+
+
+
 
 memoryElements.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
@@ -180,7 +236,7 @@ numsBtn.forEach((element) => {
 
 dot.addEventListener("click", () => {
     acce.textContent = "CE";
-    operatorToFunction["dot"]();
+    operatorToFunction["dot"](dot);
 
 })
 
