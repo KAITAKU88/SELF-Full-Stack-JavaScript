@@ -18,6 +18,7 @@ let round_2 = document.querySelector(".round_2");
 let clearOneLast = document.querySelector(".clearOne");
 //Trả về các phần tử mc, mr, m+, m-
 let memoryElements = document.querySelectorAll(".memory");
+let percent = document.querySelector(".percent");
 
 
 let memoVar = 0;//biến độc lập cho giá trị trong bộ nhớ dùng cho mc, mr, m+, m-
@@ -30,25 +31,19 @@ let isNum2 = false;// Mặc định giá trị trên screen được gán cho nu
 let isStart = false; //true tức là sẽ reset lại màn hình, tính lại từ đầu. 
 
 
-//hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
-
-
-
-
 
 //object mapping để chuyển từ operator string sang function 
 let operatorToFunction = {
-    '/' : (a, b) => {return (a/b)},
-    'x' : (a, b) => {return (a*b)},
-    '+' : (a, b) => {return (a + b)},
-    '-' : (a, b) => {return (a - b)},
-    '%' : (a, b) => {return },           //xử lý hàm %????????????????????
-
-
-
-    "pi" : () => {return (Math.PI)},
-    "sqrt" : (a) => {return (Math.sqrt(a))},
-    "square" : (a) => {return (Math.pow(a, 2), 14)},
+    '/' : (a, b) => {return a/b},
+    'x' : (a, b) => {return a*b},
+    '+' : (a, b) => {return a + b},
+    '-' : (a, b) => {return a - b},
+    'x%' : (a, b) => {return a*b/100}, 
+    '+%' : (a, b) => {return +a + a*b/100},
+    '-%' : (a, b) => {return a - a*b/100},
+    "pi" : () => {return Math.PI},
+    "sqrt" : (a) => {return Math.sqrt(a)},
+    "square" : (a) => {return Math.pow(a, 2)},
     "plusMinus" : (a) => {return (-1)*a},
     "r2" : (a) => {return Number(a).toFixed(2)},  
     "r0" : (a) => {return Math.round(a)} ,  
@@ -139,9 +134,13 @@ function createNumberDisplay (element) {
 
 
 
-// Khi nút % được nhấn 
+// Khi nút % được nhấn, 
+//tùy theo là toán tử +,- hay * mà kết quả sẽ khác nhau
 
-
+percent.addEventListener("click", () => {
+    const x = operatorToFunction[operators + "%"](num1, num2);
+    console.log(`${num1} ${operators} ${num2}% = `, x);
+})
 
 
 // KHU VỰC OK RỒI 

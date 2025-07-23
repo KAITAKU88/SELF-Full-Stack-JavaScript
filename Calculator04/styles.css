@@ -81,21 +81,7 @@ button:hover
 }
 
 .screen {
-    /* display: flex;
-    border: 0.5px solid black;
-    width: 320px;
-    height: 50px;
-    margin: 10px auto;
-    background: #FFF;
-    border-radius: 3px;
-    font-size: 2em;
-    justify-content: right;
-    padding-right: 5px;
-    align-items: center;
-    font-family:'Courier New', Courier, monospace;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    direction: ltr; */
+
     border: 0.5px solid black;
     width: 320px;
     height: 50px;
