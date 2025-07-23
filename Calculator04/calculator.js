@@ -20,7 +20,6 @@ let clearOneLast = document.querySelector(".clearOne");
 let memoryElements = document.querySelectorAll(".memory");
 
 
-
 let memoVar = 0;//biến độc lập cho giá trị trong bộ nhớ dùng cho mc, mr, m+, m-
 let memoOperator="";//Đại diện cho các toán tử mc, mr, m-, m+
 
@@ -28,7 +27,7 @@ let operators = ""; //đại diện cho các toán tử 2 toán hạng như +, -
 let num1 = "0";//ta khai là chuỗi, không phải số vì để nối chuỗi sau này 
 let num2 = "0"; //đây là 2 toán hạng trong phép tính toán 
 let isNum2 = false;// Mặc định giá trị trên screen được gán cho num1 
-let between = 0; //biến trung gian 
+let isStart = false; //true tức là sẽ reset lại màn hình, tính lại từ đầu. 
 
 
 //hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
@@ -65,6 +64,8 @@ let operatorToFunction = {
         } else {
             num1 = 0;
             num2 = 0;
+            isNum2 = false;
+            isStart = false;
             screen.textContent = 0;
         }
     },   
@@ -80,6 +81,10 @@ let operatorToFunction = {
 //Kết hợp nội dùng hàm dot, hàm numsbutton, acce.textContent,
 
 function createNumberDisplay (element) {
+
+    if(isStart) {
+        screen.textContent = "0";
+    }
     if(element.textContent !== ".") {
         //xử lý hàm để loại số 0 ở đầu, nhưng không loại bỏ số 0 ở sau 
         if(screen.textContent == "0") {
@@ -111,7 +116,6 @@ function createNumberDisplay (element) {
                 screen.textContent += ".";
             }
         }
-        // return screen.textContent;
     }
 
     if(isNum2 == false) {
@@ -120,6 +124,8 @@ function createNumberDisplay (element) {
     } else {
         num2 = screen.textContent;
     }
+
+
     return screen.textContent;
 }
 
@@ -131,22 +137,6 @@ function createNumberDisplay (element) {
 
 // Khi nút % được nhấn 
 
-
-
-
-/*
-Khi 1 trong 5 toán tử %, /, x, -< + 
-- Sau khi nhấn 1 trong 5 toán tử ta đã có num1 và toán tử operators.
-- Ta cần num2 nữa để thực hiện phép toán 
-*/
-opes.forEach((element) => {
-    element.addEventListener("click", () => {
-        //Nhận diện toán tử 
-        operators = element.textContent;
-        //kích hoạt num2, để bắt đầu gán cho num2.
-        isNum2 = true;
-    })
-});
 
 
 
@@ -196,6 +186,11 @@ pi.addEventListener("click", () => {
     //không cần gán toán tử, vì không có toán hạng 
     //hiển thị lên màn hình 
     screen.textContent = operatorToFunction["pi"]();
+    if(isNum2 == true) {
+        num2 = screen.textContent;
+    } else {
+        num1 = screen.textContent;
+    }
     
 })
 
@@ -205,18 +200,24 @@ opes.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
         //Khi 1 toán tử được nhấn thì trả về toán hạng đó để tính toán 
         operators = element.textContent;
+        // num1 = screen.textContent;
+        isNum2 = true //bắt đầu gán cho biến num2 
         //cần xử biến trung gian, để vẫn hiển thị num1 trên màn hình khi nhấn phím toán tử
         //nhưng khi bắt đầu nhập số mới thì số mới bắt đầu hiển thị
-        screen.textContent = 0;
+        isStart = true; //bắt đầu đếm display.textContent lại từ đầu 
 
     })
 });
 
 //khi dấu = được nhấn thì 
 equa.addEventListener("click", () => {
-    //Thực hiện phép tính toán 
+    //Thực hiện phép tính toán và hiển thị kết quả lên màn hình 
     screen.textContent = operatorToFunction[operators](+num1, +num2); 
+    //gán kết quả trên màn hình cho num1, để thực hiện tiếp 
     num1 = screen.textContent;
+    //gán num2 thành 0
+    num2 = 0;
+
 });
 
 //khi các button number được nhấn
