@@ -1,4 +1,5 @@
 // nhánh này sẽ phân tích và viết lại logic từ đầu
+
 //trả về các phím số 
 let numsBtn = document.querySelectorAll(".number");
 let dot = document.querySelector(".dot");
@@ -13,18 +14,15 @@ let sqrt = document.querySelector(".sqrt");
 let plusMinus = document.querySelector(".plusMinus");
 let round_0 = document.querySelector(".round_0");
 let round_2 = document.querySelector(".round_2");
-let mc = document.querySelector(".mc");
-let mr = document.querySelector(".mr");
-let mPlus = document.querySelector(".mPlus");
-let mMinus = document.querySelector(".mMinus");
+//Trả về các phần tử mc, mr, m+, m-
+let memoryElements = document.querySelectorAll(".memory");// chưa tạo class .memory 
 
 
 
-let memoVar = 0;//biến độc lập cho mc, mr, m+, m-
+let memoVar = 0;//biến độc lập cho giá trị trong bộ nhớ dùng cho mc, mr, m+, m-
+let memoOperator="";//Đại diện cho các toán tử mc, mr, m-, m+
 
-
-
-let operators = "";
+let operators = ""; //đại diện cho các toán tử 2 toán hạng như +, -, *, /, %
 let num1 = 0;
 let num2 = 0; //đây là 2 toán hạng trong phép tính toán 
 
@@ -40,8 +38,12 @@ let operatorToFunction = {
     "sqrt" : (a) => {return Math.sqrt(a)},
     "square" : (a) => {return Math.pow(a, 2)},
     "plusMinus" : (a) => {return (-1)*a},
-    "r2" : (a) => {return Number(a).toFixed(2)},  //hàm này là gì ?????
-    "r0" : (a) => {return Math.round(a)} ,  ///////////////////////???
+    "r2" : (a) => {return Number(a).toFixed(2)},  
+    "r0" : (a) => {return Math.round(a)} ,  
+    "mc" : () => {memoVar = 0}, //xóa bộ nhớ độc lập 
+    "mr" : () => {screen.textContent = memoVar},
+    "m-" : () => {memoVar -= screen.textContent},
+    "m+" : () => {memoVar += screen.textContent},
 };
 
 
@@ -50,6 +52,17 @@ let operatorToFunction = {
 
 
 // KHU VỰC OK RỒI 
+
+memoryElements.forEach((element, index, arr) => {
+    element.addEventListener("click", () => {
+        memoOperator = element.textContent;
+        operatorToFunction[memoOperator]();
+        console.log(memoVar);
+    })
+})
+
+
+
 round_0.addEventListener("click", () => {
     screen.textContent = operatorToFunction["r0"](screen.textContent);
 })
