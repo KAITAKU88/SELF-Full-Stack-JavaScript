@@ -28,6 +28,7 @@ let operators = ""; //đại diện cho các toán tử 2 toán hạng như +, -
 let num1 = "0";//ta khai là chuỗi, không phải số vì để nối chuỗi sau này 
 let num2 = "0"; //đây là 2 toán hạng trong phép tính toán 
 let isNum2 = false;// Mặc định giá trị trên screen được gán cho num1 
+let between = 0; //biến trung gian 
 
 
 //hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
@@ -93,14 +94,14 @@ function createNumberDisplay (element) {
             acce.textContent = "CE";
         }
         
-        return screen.textContent;
+        // return screen.textContent;
 
     }
     else {
         acce.textContent = "CE";
         //Kiểm tra, nếu số trên màn hình chưa có dấu . thì mới thực hiện 
         if (String(screen.textContent).includes(".") == true) {
-            console.log("included `.`");
+            // console.log("included `.`");
             //do nothing
         } else {
             if (screen.textContent == "0") {
@@ -110,8 +111,16 @@ function createNumberDisplay (element) {
                 screen.textContent += ".";
             }
         }
-        return screen.textContent;
+        // return screen.textContent;
     }
+
+    if(isNum2 == false) {
+        num1 = screen.textContent;
+
+    } else {
+        num2 = screen.textContent;
+    }
+    return screen.textContent;
 }
 
 
@@ -134,25 +143,10 @@ opes.forEach((element) => {
     element.addEventListener("click", () => {
         //Nhận diện toán tử 
         operators = element.textContent;
-        //Gán giá trị trên màn hình cho num1 
-        num1 = screen.textContent;
         //kích hoạt num2, để bắt đầu gán cho num2.
         isNum2 = true;
     })
 });
-
-equa.addEventListener("click", () => {
-    //
-    //Viết 1 hàm để dùng trong đây, hàm này dùng cho cả dot và numsBtn luôn. Viết hàm độc lập bên ngoài
-    //hàm này cho phép nhận các element.textContent để nối thành 1 số có nghĩa.
-    
-
-
-    //sau khi nhấn = ta có đủ 3 yếu tố để thực hiện phép toán 
-})
-
-
-
 
 
 
@@ -166,7 +160,7 @@ memoryElements.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
         memoOperator = element.textContent;
         operatorToFunction[memoOperator]();
-        console.log(memoVar);
+        // console.log(memoVar);
     })
 })
 
@@ -211,24 +205,25 @@ opes.forEach((element, index, arr) => {
     element.addEventListener("click", () => {
         //Khi 1 toán tử được nhấn thì trả về toán hạng đó để tính toán 
         operators = element.textContent;
-        //cần xử lý gì với num2, num1 ở đây 
+        //cần xử biến trung gian, để vẫn hiển thị num1 trên màn hình khi nhấn phím toán tử
+        //nhưng khi bắt đầu nhập số mới thì số mới bắt đầu hiển thị
+        screen.textContent = 0;
+
     })
 });
 
 //khi dấu = được nhấn thì 
 equa.addEventListener("click", () => {
     //Thực hiện phép tính toán 
-    operatorToFunction[operators](num1, num2);  //vấn đề quan trọng là xác định num1, num2???
-    //chưa xử lý hiển thị lên màn hình 
+    screen.textContent = operatorToFunction[operators](+num1, +num2); 
+    num1 = screen.textContent;
 });
 
 //khi các button number được nhấn
 numsBtn.forEach((element) => {
     element.addEventListener("click", () => {
          operatorToFunction["numsbutton"](element);
-        // if(screen.textContent != "0") {
-        //     acce.textContent = "CE";
-        // }
+
     })
 })
 
