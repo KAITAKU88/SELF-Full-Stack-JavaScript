@@ -33,19 +33,22 @@ let isStart = false; //true tức là sẽ reset lại màn hình, tính lại t
 //hàm xử lý phần trăm, đưa hàm này vào bên trong đối tượng operatorToFunction 
 
 
+
+
+
 //object mapping để chuyển từ operator string sang function 
 let operatorToFunction = {
-    '/' : (a, b) => {return a/b},
-    'x' : (a, b) => {return a*b},
-    '+' : (a, b) => {return a + b},
-    '-' : (a, b) => {return a - b},
+    '/' : (a, b) => {return (a/b)},
+    'x' : (a, b) => {return (a*b)},
+    '+' : (a, b) => {return (a + b)},
+    '-' : (a, b) => {return (a - b)},
     '%' : (a, b) => {return },           //xử lý hàm %????????????????????
 
 
 
-    "pi" : () => {return Math.PI},
-    "sqrt" : (a) => {return Math.sqrt(a)},
-    "square" : (a) => {return Math.pow(a, 2)},
+    "pi" : () => {return (Math.PI)},
+    "sqrt" : (a) => {return (Math.sqrt(a))},
+    "square" : (a) => {return (Math.pow(a, 2), 14)},
     "plusMinus" : (a) => {return (-1)*a},
     "r2" : (a) => {return Number(a).toFixed(2)},  
     "r0" : (a) => {return Math.round(a)} ,  
@@ -82,9 +85,11 @@ let operatorToFunction = {
 
 function createNumberDisplay (element) {
 
-    if(isStart) {
+    if(isStart) { //chỉ được sử dụng khi nút số được ấn lần đầu tiên 
         screen.textContent = "0";
     }
+
+
     if(element.textContent !== ".") {
         //xử lý hàm để loại số 0 ở đầu, nhưng không loại bỏ số 0 ở sau 
         if(screen.textContent == "0") {
@@ -99,7 +104,6 @@ function createNumberDisplay (element) {
             acce.textContent = "CE";
         }
         
-        // return screen.textContent;
 
     }
     else {
@@ -172,7 +176,7 @@ plusMinus.addEventListener("click", () => {
 
 square.addEventListener("click", () => {
     //tính toán xong hiển thị lên màn hình 
-    screen.textContent = operatorToFunction["square"](screen.textContent);
+    screen.textContent = (operatorToFunction["square"](screen.textContent));
 })
 
 sqrt.addEventListener("click", () => {
@@ -223,8 +227,8 @@ equa.addEventListener("click", () => {
 //khi các button number được nhấn
 numsBtn.forEach((element) => {
     element.addEventListener("click", () => {
-         operatorToFunction["numsbutton"](element);
-
+        operatorToFunction["numsbutton"](element);
+        isStart = false;
     })
 })
 

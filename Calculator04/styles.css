@@ -93,6 +93,9 @@ button:hover
     padding-right: 5px;
     align-items: center;
     font-family:'Courier New', Courier, monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
 }
 
 .header {
