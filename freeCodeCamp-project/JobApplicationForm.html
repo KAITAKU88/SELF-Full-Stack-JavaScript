@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        .container {
+            max-width: 500px;
+            border: 1px solid beige;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            background-color: beige;
+        }
+
+
+        #full-name, 
+        #email, #position,
+        #why,
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+
+        #full-name:invalid,
+        #email:invalid,
+        #why:invalid,
+        #position:invalid {
+            border: 1px solid red;
+        }
+
+        #full-name:valid,
+        #email:valid,
+        #why:valid,
+        #position:valid {
+            border: 1px solid green;
+        }
+
+        button {
+            background-color: aqua;
+            border: none;
+            border-radius: 5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            box-shadow: 0 0 4px red;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+
+        }
+
+        
+
+        button:hover {
+            background-color: red;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .radio-group input[type="radio"]:checked {
+            background-color: green;
+            border: 2px solid green;
+            box-shadow: 0 0 5px green;
+        }
+
+        .radio-group input[type="radio"]:checked + label {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application</h1>
+        <form action="#" method="post">
+            <label for="full-name">Full Name:</label><br>
+            <input type="text" name="full-name" id="full-name" required placeholder="Enter your name">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required placeholder="Enter your email">
+
+            <label for="position">Position</label>
+            <select name="position" id="position">
+                <option value="" selected>Select a position</option>
+                <option value="developer">Developer</option>
+                <option value="design">Designer</option>
+                <option value="manager">Manager</option>
+            </select>
+
+            <fieldset class="radio-group">
+                <legend>Availability</legend>
+                <input type="radio" name="availability" id="full-time" value="full-time">
+                <label for="full-time">Full-Time</label>
+
+                <input type="radio" name="availability" id="part-time" value="part-time">
+                <label for="part-time">Part-Time</label>
+            </fieldset>
+
+            <label for="why">Why do you want this job?</label>
+            <textarea name="why" id="why" placeholder="Write your motivation"></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+
+    </div>
+</body>
+</html>
+
