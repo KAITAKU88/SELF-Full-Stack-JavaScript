@@ -25,3 +25,6 @@ li::marker {
   font-weight: bold;
 }
 
+div {
+  overflow: hidden;
+}
