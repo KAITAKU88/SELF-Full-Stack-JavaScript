@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Menu</title>
+    <style>
+        .cafe-menu {
+            max-width: 400px;
+            max-height: 100vh;
+            /* border: 1px solid; */
+            margin: 10px auto;
+            text-align: center;
+            background-color: burlywood;
+            box-shadow: 0 0 3px;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1rem;
+        }
+
+        h1 + p {
+            font-style: italic;
+
+        }
+
+        hr {
+            height: 1px;
+            width: 80%;
+            background-color: brown;
+            border: 1px solid brown;
+            margin: 20px auto;
+        }
+
+        img {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+        }
+
+        p.name, p.price {
+            display: inline-block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            /* border: 1px dashed ; */
+            
+        }
+         
+        p.name {
+            width: 75%;
+            text-align: left;
+        }
+
+        p.price {
+            width: 20%;
+            text-align: right;
+        }
+
+        section.coffee {
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        /* article {
+            border: 2px solid red;
+        } */
+
+        footer p {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cafe-menu">
+        <h1>CAMPER CAFE</h1>
+        <p >Est. 2020</p>
+        <hr>
+        <section class="coffee">
+            <h2>Coffee</h2>
+            <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/coffee.jpg" alt="coffee">
+            <article>
+                <p class="name">French Vanilla</p><p class="price">3.00</p>
+            </article>
+            <article>
+                <p class="name">Caramel Macchiato</p><p class="price">3.75</p>
+            </article>
+            <article>
+                <p class="name">Pumpkin Spice</p><p class="price">3.50</p>
+            </article>
+            <article>
+                <p class="name">Hazelnut</p><p class="price">4.00</p>
+            </article>
+            <article>
+                <p class="name">Mocha</p><p class="price">4.50</p>
+            </article>
+        </section>
+        
+        <section class="desserts">
+            <h2>Desserts</h2>
+            <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/pie.jpg" alt="coffee">
+            <article>
+                <p class="name">Donut</p><p class="price">1.50</p>
+            </article>
+            <article>
+                <p class="name">Cherry Pie</p><p class="price">2.75</p>
+            </article>
+            <article>
+                <p class="name">CheeseCake</p><p class="price">3.00</p>
+            </article>
+            <article>
+                <p class="name">Cinnamon</p><p class="price">4.00</p>
+            </article>
+
+        </section>
+        <hr>
+        <footer>
+            <a href="#" target="_blank">Visit our website</a>
+            <p>123 Free Code Camp Drive</p>
+        </footer>
+    </div>
+</body>
+</html>
