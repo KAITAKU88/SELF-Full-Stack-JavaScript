@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing Cards</title>
+    <!-- <link rel="stylesheet" href="test.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(204, 197, 204);
+        }
+
+        #playing-cards {
+            display: flex;
+            /* border: 2px solid red; */
+            padding: 50px;
+            gap: 20px;
+            flex-flow: row wrap;
+            justify-content: center;
+
+        }
+
+        .card {
+            width: 200px;
+            height: 260px;
+            border: 1px solid black;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 1px 1px black;
+            padding: 5px;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            align-self: flex-start;
+        }
+
+
+        .middle {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            font-size: 3em;
+        }
+
+        .middle div {
+            align-self: center;
+        }
+
+        .right {
+            align-self: flex-end;
+            transform: rotate(180deg);
+        }
+
+
+
+
+
+
+        .ro,
+        .co {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="playing-cards">
+        <div class="card bich">
+            <div class="left">A ♠</div>
+            <div class="middle">♠</div>
+            <div class="right">A ♠</div>
+        </div>
+        <div class="card tep">
+            <div class="left">2 ♣</div>
+            <div class="middle">
+                <div>♣</div>
+                <div style="transform: rotate(180deg);">♣</div>
+            </div>
+            <div class="right">2 ♣</div>
+        </div>
+        <div class="card co">
+            <div class="left">3 ♥</div>
+            <div class="middle">
+                <div>♥</div>
+                <div>♥</div>
+                <div style="transform: rotate(180deg);">♥</div>
+            </div>
+            <div class="right">3 ♥</div>
+        </div>
+        <div class="card">
+            <div class="left">K ♥</div>
+            <div class="middle">
+                <div>♥ ♥</div>
+                <div style="transform: rotate(180deg);">♥ ♥</div>
+            </div>
+            <div class="right">K ♥</div>
+        </div>
+        <div class="card ro">
+            <div class="left">Q ♦</div>
+            <div class="middle">
+                <div>♦ ♦</div>
+                <div>♦</div>
+                <div>♦ ♦</div>
+
+            </div>
+            <div class="right">Q ♦</div>
+        </div>
+
+    </main>
+</body>
+
+</html>
