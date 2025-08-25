@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="test.css"> -->
+    <style>
+        div.bussiness-card {
+            width: 300px;
+            border: 2px solid black;
+            /* height: 420px; */
+            background-color: rgb(210, 225, 220);
+            text-align: center;
+            padding: 15px;
+            margin: 10px auto;
+        }
+
+        div.bussiness-card:hover img {
+            transform: scale(1.1);
+        }
+
+        div.bussiness-card:hover {
+            box-shadow: 0 0 4px 1px;
+        }
+
+        h2.name {
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin: 0 auto 5px;
+        }
+
+        img {
+            width: 60%;
+            box-shadow: 0 0 2px rgb(210, 0, 0);
+            transition: transform 0.3s ease;
+        }
+
+        hr {
+            border-color: gray;
+            width: 80%;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            color: red;
+            font-style: italic;
+        }
+
+        .social a {
+            /* border: 1px solid; */
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="bussiness-card">
+        <img src="https://cdn.freecodecamp.org/curriculum/labs/flower.jpg" alt="profile image">
+        <h2 class="name">NGUYEN DUC CHIEN</h2>
+        <p>AI Full Stack Dev</p>
+        <p>@freecodecamp</p>
+        <hr>
+        <p class="email">Email: matdaytamden00@gmail.com</p>
+        <p class="phone">Phone: (123)456-7890</p>
+        <a href="#" target="_blank" class="portfolio">Portfolio</a>
+        <hr>
+        <footer class="social">
+            <h2>Connect with me</h2>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+        </footer>
+    </div>
+</body>
+
+</html>
