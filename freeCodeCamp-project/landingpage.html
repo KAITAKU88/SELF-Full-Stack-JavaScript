@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            --header-color: #dddddd;
+            --button-color: #f1c40f;
+            --footer-color: #dddddd;
+            --border-color: gray;
+            --background-color: yellow;
+            --icon-color: #ff8c00;
+            --link-color: black;
+            --hover-color: red;
+            --button-text: black;
+        }
+
+
+        html {
+            font-size: 62.5%;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-size: 1.6rem;
+        }
+
+        @media screen and (max-width: 640px) {
+            #header {
+                background-color: var(--header-color);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                padding: 5px;
+                font-size: 1.6rem;
+
+            }
+
+            #header-img {
+                width: 200px;
+            }
+        }
+
+
+
+        #header {
+            background-color: var(--header-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            font-size: 1.8rem;
+
+        }
+
+        #header-img {
+            width: 300px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--link-color);
+            padding-right: 20px;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+            font-weight: bold;
+        }
+
+        /* phan form */
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin: 20px;
+            text-align: center;
+        }
+
+        input[type="email"] {
+            padding: 5px;
+            width: 30%;
+            border-radius: 3px;
+            font-size: 1.6rem;
+            border: 1px solid var(--border-color);
+        }
+
+
+        input[type="email"]:focus {
+            outline: none;
+            border: 2px solid red;
+        }
+
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--button-color);
+            color: var(--button-text);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--hover-color);
+            cursor: pointer;
+        }
+
+        /* phan than */
+
+
+        #features {
+            /* border: 1px solid red; */
+            width: 80vw;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+
+        article {
+            /* border: 1px solid black; */
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .fas {
+            /* border: 1px solid pink; */
+            color: var(--icon-color);
+            font-size: 5rem;
+            width: 20%;
+        }
+
+        h3 {
+            width: 80%;
+        }
+
+        h3 p {
+            font-weight: normal;
+            font-size: 1.7rem;
+        }
+
+        /*  */
+
+        iframe {
+            display: block;
+            margin: 40px auto;
+            width: 70vw;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            max-width: 1200px;
+        }
+
+        /* plans */
+
+        #plans {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+
+        .plan {
+            border: 1.5px solid var(--border-color);
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+            max-width: 300px;
+            min-width: 250px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .plan h4 {
+            text-transform: uppercase;
+            padding: 15px;
+            background-color: var(--header-color);
+        }
+
+        .plan p {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+
+
+        .plan li {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        .plan button {
+            background-color: var(--button-color);
+            color: var(--button-text);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+
+
+        }
+
+        .plan button:hover {
+            background-color: var(--hover-color);
+            transform: scale(1.1);
+        }
+
+
+        /* footer */
+        footer {
+            background-color: var(--footer-color);
+            text-align: right;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 1.3rem;
+            padding-top: 10px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <img src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png"
+            alt="header-img" id="header-img">
+        <nav id="nav-bar">
+            <a class="nav-link"
+                href="https://www.freecodecamp.org/learn/full-stack-developer/lab-product-landing-page/build-a-product-landing-page#features"
+                target="_blank">Features</a>
+            <a class="nav-link"
+                href="https://www.freecodecamp.org/learn/full-stack-developer/lab-product-landing-page/build-a-product-landing-page#how-it-works"
+                target="_blank">How It Works</a>
+            <a class="nav-link"
+                href="https://www.freecodecamp.org/learn/full-stack-developer/lab-product-landing-page/build-a-product-landing-page#pricing"
+                target="_blank">Pricing</a>
+
+
+
+        </nav>
+    </header>
+    <main>
+        <form action="https://www.freecodecamp.org/email-submit" method="post">
+            <h1>Handcrafted, home-made masterpieces</h1>
+            <input type="email" name="email" aria-label="Input your email" placeholder="Enter your email">
+            <br>
+            <input type="submit" value="Get started">
+
+        </form>
+        <section id="features">
+            <article>
+                <i class="fas fa-fire"></i>
+                <h3>
+                    <span>Premium Materials</span>
+                    <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity
+                        of your purchase.</p>
+                </h3>
+
+
+            </article>
+
+            <article>
+                <i class="fas fa-truck"></i>
+                <h3>
+                    <span>Fast Shipping</span>
+                    <p>We make sure you receive your trombone as soon as we have finished making it. We also provide
+                        free returns if you are not satisfied.
+
+                    </p>
+                </h3>
+
+            </article>
+
+            <article>
+                <i class="fas fa-battery-full"></i>
+                <h3>
+                    <span>Quality Assurance</span>
+                    <p>For every purchase you make, we will ensure there are no damages or faults and we will check and
+                        test the pitch of your instrument.</p>
+                </h3>
+
+            </article>
+
+        </section>
+        <iframe src="https://youtube.com/embed/y8Yv4pnO7qc?si=KHRvIWZ2Z0B1vmwO" allowfullscreen title="Roman Tic from "
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <section id="plans">
+            <div class="plan tenor">
+                <h4 class="plan-title">Tenor Trombone</h4>
+                <p class="price">$600</p>
+                <ul class="plan-description">
+                    <li>Good for beginners</li>
+                    <li>Excellent sound quality</li>
+                    <li>Great for Jazz Bands</li>
+                    <li>Nice and shiny</li>
+                </ul>
+                <button class="plan-choose ">SELECT</button>
+
+            </div>
+            <div class="plan bass">
+                <h4 class="plan-title">Bass Trombone</h4>
+                <p class="price">$900</p>
+                <ul class="plan-description">
+                    <li>Sound quality is unmatched</li>
+                    <li>Best for professionals</li>
+                    <li>Absolutely stunning</li>
+                    <li>Durable and long lasting</li>
+                </ul>
+                <button class="plan-choose">SELECT</button>
+
+            </div>
+            <div class="plan valve">
+
+                <h4 class="plan-title">Valve Trombone</h4>
+                <p class="price">$1200</p>
+                <ul class="plan-description">
+                    <li>Plays similar to a Trumpet</li>
+                    <li>Great for Jazz Bands</li>
+                    <li>Beautiful in sound and appearance</li>
+                    <li>Just amazing</li>
+                </ul>
+                <button class="plan-choose">SELECT</button>
+
+            </div>
+            </plan>
+
+    </main>
+    <footer>
+        <a href="" target="_blank">Privacy</a>
+        <a href="" target="_blank">Terms</a>
+        <a href="" target="_blank">Contact</a>
+        <p>Copyright 2016, Original Trombones</p>
+    </footer>
+</body>
+
+</html>
