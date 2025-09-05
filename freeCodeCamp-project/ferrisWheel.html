@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        @keyframes wheel-rotation {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes carbin-rotation {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .wheel {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 5px solid black;
+            border-radius: 50%;
+            margin: auto;
+            top: 0; bottom: 0;
+            left: 0; right: 0;
+            animation: wheel-rotation 10s linear infinite;
+
+
+        }
+
+        .line {
+            width: 300px;
+            height: 5px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* transform-origin: center center; */
+            transform: translate(-50%, -50%);
+        }
+
+        
+        .line.two {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .carbin {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            border-top: 60px solid salmon;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            transform-origin: center 0;
+            animation: carbin-rotation 10s linear infinite;
+
+        }
+
+        .carbin.one {
+            top: 0;
+            left: calc(50% - 40px);
+
+        }
+
+        .carbin.two {
+            bottom: calc(-50px);
+            left: calc(50% - 40px);
+        }
+
+        .carbin.three {
+            right: calc(-40px);
+            top: 50%;
+        }
+
+        .carbin.four {
+            left: calc(-40px);
+            top: 50%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wheel">
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="carbin one"></div>
+        <div class="carbin two"></div>
+        <div class="carbin three"></div>
+        <div class="carbin four"></div>
+    </div>
+    
+</body>
+</html>
