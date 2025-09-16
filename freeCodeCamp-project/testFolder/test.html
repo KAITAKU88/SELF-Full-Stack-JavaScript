@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-<div></div>
-<img src="../images/whisper.jpg" alt="">
+  <button id="menuButton" aria-expanded="false" aria-controls="menuList">
+    Menu
+  </button>
+
+  <ul id="menuList" hidden>
+    <li><button type="button">Action 1</button></li>
+    <li><button type="button">Action 2</button></li>
+  </ul>
+
+
+
+  <script>
+    const button = document.getElementById("menuButton");
+    const menu = document.getElementById("menuList");
+
+    // button.addEventListener("click", () => {
+    //   const expanded = button.getAttribute("aria-expanded") === "true";
+    //   button.setAttribute("aria-expanded", String(!expanded));
+    //   menu.hidden = !expanded;
+    // });
+    button.addEventListener("click", () => {
+  const expanded = button.getAttribute("aria-expanded") === "true";
+  const newExpanded = !expanded;                // trạng thái sau khi click
+  button.setAttribute("aria-expanded", String(newExpanded));
+  menu.hidden = !newExpanded;                   // nếu mớiExpanded = true → menu.hidden = false (hiển thị)
+});
+
+  </script>
 </body>
+
 </html>

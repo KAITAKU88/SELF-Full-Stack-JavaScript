@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+}
+div {
+    border: 2px solid;
+}
+ul {
+    border: 1px solid red;
+    margin-block: 0;
+    /* padding-inline-start: 0; */
+
+}
+
+li {
+    border: 1px solid green;
+    /* padding-inline-start: 0; */
+    /* list-style-type: none; */
+    list-style-position: inside;
+}
+
+p {
+    border: 1px solid;
+    margin-block: 0;
+}
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    <style>
+        :root {
+            --color-light: white;
+            --color-dark: black;
+            --color-ocean: skyblue;
+        }
+
+        .dark-theme {
+            background: var(--color-dark);
+            color: white;
+        }
+
+        .light-theme {
+            background: var(--color-light);
+            color: black;
+        }
+
+        .ocean-theme {
+            background: var(--color-ocean);
+            color: black;
+        }
+
+        #button-choose-theme {
+            font-size: 1.1rem;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+
+        ul {
+            padding-inline-start: 0;
+            /* border: 1px solid; */
+            width: 150px;
+        }
+
+        li {
+            font-size: 1.1rem;
+            list-style: none;
+            padding: 10px;
+            margin-bottom: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+
+        li:hover {
+            transform: scale(1.05);
+        }
+
+        li#dark-theme {
+            background: var(--color-dark);
+            color: white;
+            border: 1px solid white;
+        }
+
+        li#light-theme {
+            background: var(--color-light);
+            color: black;
+            border: 1px solid black;
+        }
+
+        li#ocean-theme {
+            background: var(--color-ocean);
+            border: 1px solid white;
+        }
+
+        p {
+            font-size: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="button-choose-theme" aria-haspopup="true" aria-expanded="false" aria-controls="list-theme">Choose
+        Theme</button>
+    <!-- mặc định ban đầu list-theme sẽ bị ẩn đi  -->
+    <ul id="list-theme" role="menu" aria-labelledby="button-choose-theme" hidden>
+        <li id="dark-theme" role="menu-item">Dark</li>
+        <li id="light-theme" role="menu-item">Light</li>
+        <li id="ocean-theme" role="menu-item">Ocean</li>
+    </ul>
+    <p id="status-msg" aria-live="polite"></p>
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeArr = [
+                { name: "dark", message: "You're choosed DARK theme!" },
+                { name: "light", message: "You're choosed LIGHT theme!" },
+                { name: "ocean", message: "You're choosed OCEAN theme!" }
+            ];
+
+            let toggleChooseTheme = false;
+            //query lấy các element trong DOM 
+            const body = document.querySelector("body");
+            const chooseThemeBtn = document.getElementById("button-choose-theme");
+            const listTheme = document.getElementById("list-theme");
+            const statusMsg = document.getElementById("status-msg");
+
+            function update() {
+                chooseThemeBtn.setAttribute("aria-expanded", `${!toggleChooseTheme}`);
+                listTheme.hidden = toggleChooseTheme;
+                toggleChooseTheme = !toggleChooseTheme;
+            }
+
+
+            chooseThemeBtn.addEventListener("click", () => {
+                update();
+            });
+
+            listTheme.addEventListener("click", (event) => {
+                body.classList = ""; //gỡ tất cả class trên body trước đã 
+                themeArr.forEach(obj => {
+                    if (event.target.id.includes(obj.name)) {
+                        statusMsg.innerText = obj.message;
+                        body.classList.add(event.target.id);
+                        update();
+                    }
+                })
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

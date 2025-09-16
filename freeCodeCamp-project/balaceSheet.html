@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Sheet Table</title>
+    <style>
+        *,
+        ::after,
+        ::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-size: 2rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+
+
+        .explain {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 1.6rem;
+            display: block;
+            margin-top: 1rem;
+            margin-right: -15rem;
+        }
+
+
+
+        .sheet {
+            width: 80vw;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+            margin: 5px auto;
+            padding: 10
+        }
+
+        tr {
+            background-image: linear-gradient(to right, #dfdfe2, rgb(91, 83, 83));
+            background-repeat: no-repeat;
+            background-size: 100% 3.5rem;
+
+        }
+
+
+        tr th {
+            vertical-align: top;
+            text-align: left;
+            width: 100%;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        tr td {
+
+            text-align: right;
+            vertical-align: top;
+            width: 100%;
+            min-width: 6rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="sheet">
+
+        <table class="assets-table">
+
+            <tbody>
+                <tr>
+                    <th>Cash<span class="explain">This is the cash we currently have on hand</span></th>
+                    <td>$25</td>
+                    <td>$30</td>
+                    <td class="current">28$</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

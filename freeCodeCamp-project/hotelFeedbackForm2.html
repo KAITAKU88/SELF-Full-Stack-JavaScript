@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Feedbackform 2</title>
+    <style>
+        img {
+            width: 80vw;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/hotelFeedBackForm2.PNG" alt="">
+    <h1>Hotel FeedBack Form</h1>
+    <p>Thank you staying with us. Please provide feedback on your recent stay.</p>
+    <form action="http://www.freecodecamp.com" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name (required): </label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email address (required): </label>
+            <input type="email" id="email" name="email" required placeholder="example@email.com">
+        </fieldset>
+
+        <fieldset>
+            <legend>Was this your first time at our hotel?</legend>
+            <input type="radio" name="firsttime" value="yes" id="yes">
+            <label for="yes">Yes</label>
+
+            <input type="radio" name="firsttime" value="no" id="no">
+            <label for="no">No</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Why didi you choose to stay at oour hotel?</legend>
+            <input type="checkbox" id="social" name="social" value="social" checked>
+            <label for="social">Social Media Ads</label>
+
+            <input type="checkbox" id="price" name="price" value="price">
+            <label for="price">Price</label>
+
+
+        </fieldset>
+
+        <label for="rating">How as the service: </label>
+        <select name="rating" id="rating">
+            <option value="excellent" selected>Excellent</option>
+            <option value="good" >Good</option>
+            <option value="bad" >Bad</option>
+        </select>
+
+        <label for="comment">Other comments? </label><br>
+        <textarea name="comment" id="comment" rows="10" cols="50"></textarea>
+
+        <input type="button" value="Submit">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
